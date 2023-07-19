@@ -22,7 +22,7 @@ import com.prueba.ingeneo.entity.Storage;
 import com.prueba.ingeneo.service.ShipmentService;
 
 @RestController
-@RequestMapping(value = "/api/v1/shipments")
+@RequestMapping(value = "/api/v1/auth/shipments")
 public class ShipmentController {
 
 	@Autowired

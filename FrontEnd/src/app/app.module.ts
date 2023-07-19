@@ -29,7 +29,7 @@ const MATERIAL_MODULES = [MatToolbarModule, MatIconModule];
     RegisterComponent,
     LoginComponent,
     StorageComponent,
-    ProductComponent,
+    ProductComponent
   ],
   imports: [
     MatToolbarModule,

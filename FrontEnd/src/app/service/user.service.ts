@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { DatePipe } from '@angular/common';
 
 import { FormGroup } from '@angular/forms';
+import { RequestDTO } from '../model/request';
 @Injectable({
   providedIn: 'root',
 })
@@ -14,9 +15,8 @@ export class UserService {
   constructor(private http: HttpClient, private datePipe: DatePipe) {}
 
   login(userName: string, pwd: string) {
-    let params = new HttpParams().set('userName', userName);
-    params.set('password', pwd)
-    return this.http.get(`${this.baseUrl}/signin`, { params: params });
+    const request: RequestDTO = { email: userName, password: pwd };
+    return this.http.post(`${this.baseUrl}/authenticate`, request);
   }
 
   verifEmail(email: string) {
@@ -28,6 +28,7 @@ export class UserService {
   }
 
   createData(info: Object): Observable<Object> {
+    console.log("Entre a registrar...")
     return this.http.post(`${this.baseUrl}/register`, info);
   }
 

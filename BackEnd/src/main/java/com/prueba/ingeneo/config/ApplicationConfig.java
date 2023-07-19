@@ -1,6 +1,6 @@
 package com.prueba.ingeneo.config;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,15 +15,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import com.prueba.ingeneo.repository.UserRepository;
 
 @Configuration
-@RequiredArgsConstructor
 public class ApplicationConfig {
 
-	private final UserRepository repository;
+	@Autowired
+	UserRepository repository;
 
 	@Bean
 	public UserDetailsService userDetailsService() {
-		return username -> repository
-				.findByEmail(username)
+		return username -> repository.findByEmail(username)
 				.orElseThrow(() -> new UsernameNotFoundException("User not found"));
 	}
 

@@ -3,7 +3,6 @@ import { UserService } from '../../service/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../../model/user';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-register',
@@ -52,10 +51,8 @@ export class RegisterComponent implements OnInit {
   }
 
   addData() {
-    const formData = new FormData();
     const users = this.userService.formData.value;
-    formData.append('request', JSON.stringify(users));
-    this.userService.createData(formData).subscribe((data) => {
+    this.userService.createData(users).subscribe((data) => {
       Swal.fire({
         position: 'top-end',
         icon: 'success',

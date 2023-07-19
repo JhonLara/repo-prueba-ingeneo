@@ -7,8 +7,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <form [formGroup]="this.userService.formData" (ngSubmit)="onSubmit()">
-                                <div class="text-center">
-                                    <img src="assets/images/logo.png" alt="logo.png">
+                                <div class="col-lg-4 justify-content-center">
+                                    <img src="assets/images/ingeneo.jpg" class="img-circle " alt="User Image">
                                 </div>
                                 <div class="auth-box card">
                                     <div class="card-block">
@@ -45,7 +45,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group form-primary">
-                                                    <input type="password" formControlName="pwdd" class="form-control" placeholder="Confirma tu contraseña">
+                                                    <input type="password" class="form-control" placeholder="Confirma tu contraseña">
                                                     <span class="form-bar"></span>
                                                 </div>
                                             </div>

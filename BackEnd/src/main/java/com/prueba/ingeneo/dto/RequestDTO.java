@@ -14,5 +14,5 @@ import lombok.NoArgsConstructor;
 public class RequestDTO implements Serializable {
 
 	private String email;
-	String password;
+	private String password;
 }

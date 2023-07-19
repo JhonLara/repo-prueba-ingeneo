@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
   providedIn: 'root',
 })
 export class ShipmentService {
-  private baseUrl = '/api/api/v1/shipments';
+  private baseUrl = '/api/api/v1/auth/shipments';
   private storageUrl = '/storage';
   private productUrl = '/product';
   public formData!: FormGroup;

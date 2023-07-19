@@ -46,17 +46,14 @@ public class UserController {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<ResponseDTO> registerUser(@RequestParam("request") String request)
+	public ResponseEntity<ResponseDTO> registerUser(@RequestBody RegisterRequest request)
 			throws JsonProcessingException {
-		RegisterRequest register = new ObjectMapper().readValue(request, RegisterRequest.class);
-		return ResponseEntity.ok(userService.registerUser(register));
+		return ResponseEntity.ok(userService.registerUser(request));
 	}
 
 	@PostMapping("/authenticate")
-	public ResponseEntity<ResponseDTO> authenticate(@RequestParam("request") String request)
-			throws JsonProcessingException {
-		RequestDTO requestAuth = new ObjectMapper().readValue(request, RequestDTO.class);
-		return ResponseEntity.ok(userService.authenticateUser(requestAuth));
+	public ResponseEntity<ResponseDTO> authenticate(@RequestBody RequestDTO request) throws JsonProcessingException {
+		return ResponseEntity.ok(userService.authenticateUser(request));
 	}
 
 	@PostMapping("/refresh-token")
