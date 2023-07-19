@@ -1,0 +1,24 @@
+table {
+    width: 90%;
+    margin: 1rem auto;
+}
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    max-width: 600px;
+    box-shadow: -1px 3px 66px 0px rgba(0, 0, 0, 0.75);
+    padding: 1rem;
+}	
+mat-form-field {
+    padding: 1rem;
+}
+.card-container {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem auto;
+    margin-top: 16px;
+    box-shadow: -1px 3px 66px 0px rgba(10, 10, 0, 0.1);
+  }
