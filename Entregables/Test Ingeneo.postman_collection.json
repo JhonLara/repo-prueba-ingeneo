@@ -15,12 +15,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8181/users",
+							"raw": "localhost:8181/api/v1/auth/users",
 							"host": [
 								"localhost"
 							],
 							"port": "8181",
 							"path": [
+								"api",
+								"v1",
+								"auth",
 								"users"
 							]
 						}
@@ -106,7 +109,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstname\": \"Pau\",\r\n    \"lastname\": \"Lara\",\r\n    \"email\": \"paulajhonlara10@hotmail.com\",\r\n    \"password\": \"gato\",\r\n    \"role\": \"MANAGER\"\r\n}",
+							"raw": "{\r\n    \"userName\": \"Laura\",\r\n    \"email\": \"jl@hotmail.com\",\r\n    \"password\": \"gato\",\r\n    \"role\": \"MANAGER\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -125,6 +128,93 @@
 								"auth",
 								"users",
 								"register"
+							],
+							"query": [
+								{
+									"key": "request",
+									"value": "{\"userId\":null,\"userName\":\"jhonalexlara10\",\"role\":\"ADMIN\",\"email\":\"jhonalexlara10@hotmail.com\",\"password\":\"123\"}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8181/api/v1/auth/shipments/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"shipments",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Storages",
+			"item": [
+				{
+					"name": "Get storages",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shipments",
+			"item": [
+				{
+					"name": "Get Shipments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8181/api/v1/auth/shipments",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"shipments"
 							]
 						}
 					},
