@@ -19,4 +19,10 @@ export class ShipmentService {
   createProduct(info: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl + this.productUrl}`, info);
   }
+  deleteProduct(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl+this.productUrl}/${id}`, { responseType: 'text' });
+  }
+  getAllProducts(): Observable<any> {
+    return this.http.get(`${this.baseUrl+this.productUrl}`);
+  }
 }

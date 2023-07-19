@@ -1,3 +1,22 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.card-container {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem auto;
+    margin-top: 16px;
+    box-shadow: -1px 3px 66px 0px rgba(10, 10, 0, 0.1);
+  }
+  .card-container-table {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem auto;
+    margin-top: 16px;
+    box-shadow: -1px 3px 66px 0px rgba(10, 10, 0, 0.1);
+  }

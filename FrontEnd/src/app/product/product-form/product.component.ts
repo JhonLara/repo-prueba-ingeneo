@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { ShipmentService } from '../service/shipment.service';
+import { ShipmentService } from '../../service/shipment.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
