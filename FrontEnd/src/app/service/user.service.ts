@@ -28,7 +28,6 @@ export class UserService {
   }
 
   createData(info: Object): Observable<Object> {
-    console.log("Entre a registrar...")
     return this.http.post(`${this.baseUrl}/register`, info);
   }
 

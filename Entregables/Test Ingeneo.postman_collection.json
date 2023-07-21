@@ -51,11 +51,14 @@
 				{
 					"name": "Create User",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userName\": \"paulalara\",\r\n    \"role\": \"USER\",\r\n    \"email\": \"paulalara10@hotmail.com\",\r\n    \"password\": \"gato202020\",\r\n    \"isActive\": true\r\n}",
+							"raw": "{\r\n    \"userId\": null,\r\n    \"userName\": \"jhonalexlara10\",\r\n    \"role\": \"ADMIN\",\r\n    \"email\": \"jhonalexlara10@hotmail.com\",\r\n    \"password\": \"123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -63,13 +66,24 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8181/users",
+							"raw": "localhost:8181/api/v1/auth/users/register",
 							"host": [
 								"localhost"
 							],
 							"port": "8181",
 							"path": [
-								"users"
+								"api",
+								"v1",
+								"auth",
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "request",
+									"value": "{\n    \"userName\": \"paulalara\",\n    \"role\": \"USER\",\n    \"email\": \"paulalara10@hotmail.com\",\n    \"password\": \"gato202020\",\n    \"isActive\": true\n}",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -204,6 +218,36 @@
 					"request": {
 						"method": "GET",
 						"header": [],
+						"url": {
+							"raw": "localhost:8181/api/v1/auth/shipments",
+							"host": [
+								"localhost"
+							],
+							"port": "8181",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"shipments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Shipment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"shipmentId\": null,\r\n    \"number\": \"ADC1522\",\r\n    \"storage\": {\r\n        \"storageId\": 82,\r\n        \"storageName\": \"Bodega calle 3\",\r\n        \"storageType\": \"TERRESTRE\",\r\n        \"createDate\": \"2023-07-21\",\r\n        \"shipments\": []\r\n    },\r\n    \"quantity\": 12,\r\n    \"vehicle\": \"CDA253\",\r\n    \"deliveryDate\": \"2023-07-28\",\r\n    \"state\": \"\",\r\n    \"productName\": {\r\n        \"productId\": 47,\r\n        \"productName\": \"Shampoo\",\r\n        \"productType\": \"CONVIVENCIA\",\r\n        \"amount\": 10000\r\n    },\r\n    \"amount\": 120000,\r\n    \"amountDesc\": 116400\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "localhost:8181/api/v1/auth/shipments",
 							"host": [

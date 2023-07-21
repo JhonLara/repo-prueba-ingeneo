@@ -1,0 +1,75 @@
+<div class="card-container">
+    <div class="card-container">
+        <div class="col-lg-4 justify-content-center">
+            <img src="assets/images/ingeneo.jpg" class="img-circle " alt="User Image">
+        </div>
+        <div class="card-container">
+            <div class="col-md-12">
+                <h3 class="text-center">Envíos</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container">
+    <button mat-raised-button color="primary" [routerLink]="['/shipment']">Agregar Envío</button>
+    <button mat-raised-button color="primary" [routerLink]="['/product-list']">Productos</button>
+    <button mat-raised-button color="primary" [routerLink]="['/storage-list']">Almacenes</button>
+    <button mat-raised-button color="primary" [routerLink]="['/user-list']">Usuarios</button>
+    </div>
+    <mat-form-field>
+        <mat-label>Buscar</mat-label>
+        <input type="text" matInput (keyup)="filtrar($event)" placeholder="Buscar...">
+    </mat-form-field>
+</div>
+<div class="card-container-table">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" #tablaMedicamentos>
+        <ng-container matColumnDef="number">
+            <th mat-header-cell *matHeaderCellDef>Número</th>
+            <td mat-cell *matCellDef="let shipment">{{shipment.number}}</td>
+        </ng-container>
+        <ng-container matColumnDef="vehicle">
+            <th mat-header-cell *matHeaderCellDef>Vehículo</th>
+            <td mat-cell *matCellDef="let shipment">{{shipment.vehicle}}</td>
+        </ng-container>
+        <ng-container matColumnDef="productName">
+            <th mat-header-cell *matHeaderCellDef>Nombre Producto</th>
+            <td mat-cell *matCellDef="let shipment">{{shipment.productName}}</td>
+        </ng-container>
+        <ng-container matColumnDef="shipmentDate">
+            <th mat-header-cell *matHeaderCellDef>Fecha de envío</th>
+            <td mat-cell *matCellDef="let shipment">{{shipment.shipmentDate}}</td>
+        </ng-container>
+        <ng-container matColumnDef="deliveryDate">
+            <th mat-header-cell *matHeaderCellDef>Fecha de entrega</th>
+            <td mat-cell *matCellDef="let shipment">{{shipment.deliveryDate}}</td>
+        </ng-container>
+        <ng-container matColumnDef="storage">
+            <th mat-header-cell *matHeaderCellDef>Nombre de almacenamiento</th>
+            <td mat-cell *matCellDef="let shipment">{{shipment.storage.storageName}}</td>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef>Precio</th>
+            <td mat-cell *matCellDef="let shipment">{{shipment.amount}}</td>
+        </ng-container>
+        <ng-container matColumnDef="amountDesc">
+            <th mat-header-cell *matHeaderCellDef>Precio con descuento</th>
+            <td mat-cell *matCellDef="let shipment">{{shipment.amountDesc}}</td>
+        </ng-container>
+        <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let shipment">{{shipment.state}}</td>
+        </ng-container>
+        <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+            <td mat-cell *matCellDef="let shipment">
+                <button mat-raised-button color="warn" focusable="false"
+                    (click)="deleteShipment(shipment.shipmentId)">Eliminar</button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+    </table>
+    <div class="card-container">
+        <mat-paginator [pageSizeOptions]="[5, 10, 15,20,25]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

@@ -1,6 +1,8 @@
 package com.prueba.ingeneo.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -16,8 +18,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +29,7 @@ import lombok.Setter;
 
 @Entity
 @Data
+@Builder
 @Table(name = "shipment")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,7 +39,8 @@ public class Shipment {
 
 	@Id
 	@Column(name = "shipment_id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_entity_seq_gen")
+	@SequenceGenerator(name = "my_entity_seq_gen", sequenceName = "MY_ENTITY_SEQ", allocationSize = 1)
 	private Long shipmentId;
 
 	@Column(name = "number")
@@ -56,6 +62,9 @@ public class Shipment {
 
 	@Column(name = "product_name")
 	private String productName;
+
+	@Column(name = "quantity")
+	private Long quantity;
 
 	@Column(name = "amount")
 	private Long amount;

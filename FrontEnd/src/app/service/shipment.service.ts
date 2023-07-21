@@ -25,4 +25,20 @@ export class ShipmentService {
   getAllProducts(): Observable<any> {
     return this.http.get(`${this.baseUrl+this.productUrl}`);
   }
+  deleteStorage(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl+this.storageUrl}/${id}`, { responseType: 'text' });
+  }
+  getAllStorages(): Observable<any> {
+    return this.http.get(`${this.baseUrl+this.storageUrl}`);
+  }
+
+  deleteShipment(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
+  getAllShipments(): Observable<any> {
+    return this.http.get(`${this.baseUrl}`);
+  }
+  createShipment(info: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl}`, info);
+  }
 }

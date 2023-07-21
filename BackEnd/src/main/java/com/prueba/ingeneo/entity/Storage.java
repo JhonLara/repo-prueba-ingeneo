@@ -1,6 +1,7 @@
 package com.prueba.ingeneo.entity;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Set;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -14,6 +15,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +23,7 @@ import lombok.Setter;
 
 @Entity
 @Data
+@Builder
 @Table(name = "storage")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -41,7 +44,7 @@ public class Storage {
 	private String storageType;
 
 	@Column(name = "creation_date")
-	@DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDate createDate;
 
 	@OneToMany(mappedBy = "storage")

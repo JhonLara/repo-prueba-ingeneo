@@ -17,6 +17,7 @@ import com.prueba.ingeneo.config.JwtService;
 import com.prueba.ingeneo.dto.RegisterRequest;
 import com.prueba.ingeneo.dto.RequestDTO;
 import com.prueba.ingeneo.dto.ResponseDTO;
+import com.prueba.ingeneo.entity.Role;
 import com.prueba.ingeneo.entity.Token;
 import com.prueba.ingeneo.entity.TokenType;
 import com.prueba.ingeneo.entity.User;
@@ -51,7 +52,7 @@ public class UserServiceImpl implements UserService {
 
 	public ResponseDTO registerUser(RegisterRequest request) {
 		var user = User.builder().userName(request.getUserName()).email(request.getEmail())
-				.password(passwordEncoder.encode(request.getPassword())).role(request.getRole()).build();
+				.password(passwordEncoder.encode(request.getPassword())).role(Role.USER).build();
 		var savedUser = userRepository.save(user);
 		var jwtToken = jwtService.generateToken(user);
 		var refreshToken = jwtService.generateRefreshToken(user);

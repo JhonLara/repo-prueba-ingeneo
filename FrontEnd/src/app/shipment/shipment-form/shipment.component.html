@@ -1,0 +1,101 @@
+<div class="container col-md-6 justify-content-md-center">
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Container-fluid starts -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form [formGroup]="this.shipmentService.formData" (ngSubmit)="onSubmit()">
+                            <div class="text-center">
+                                <img src="assets/images/logo.png" alt="logo.png">
+                            </div>
+                            <div class="auth-box card">
+                                <div class="card-block">
+                                    <div class="col-lg-4 justify-content-center">
+                                        <img src="assets/images/ingeneo.jpg" class="img-circle " alt="User Image">
+                                    </div>
+                                    <div class="row m-b-20">
+                                        <div class="col-md-12">
+                                            <h3 class="text-center txt-primary">Registrar envío</h3>
+                                        </div>
+                                    </div>
+                                    <div class="form-group form-primary">
+                                        <input type="text" class="form-control form-control-user"
+                                            formControlName="number" id="number" placeholder="Número">
+                                        <span class="form-bar"></span>
+                                    </div>
+                                    <div class="form-group form-primary">
+                                        <input type="text" class="form-control form-control-user"
+                                            formControlName="vehicle" id="vehicle" placeholder="Vehículo">
+                                        <span class="form-bar"></span>
+                                    </div>
+                                    <div class="form-group form-primary">
+                                        <select formControlName="productName" name="productName" [(ngModel)]="selectProduct">
+                                          <option value="" selected="selected" disabled="disabled">Seleccione un producto</option>
+                                          <option *ngFor="let selectProduct of productList" [ngValue]="selectProduct">
+                                            {{selectProduct.productName}}
+                                          </option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group form-primary">
+                                        <input type="number" class="form-control form-control-user" 
+                                            formControlName=quantity id="quantity" placeholder="Cantidad de producto">
+                                        <span class="form-bar"></span>
+                                    </div>
+                                    <div>
+                                        <p>
+                                        <select formControlName="storage" name="storageList" [(ngModel)]="selectStorage" (change)="storage()">
+                                            <option value="" selected="selected" disabled="disabled">Seleccione un almacén</option>
+                                            <option *ngFor="let selectStorage of storageList" [ngValue]="selectStorage">
+                                              {{selectStorage.storageName}}
+                                            </option>
+                                          </select>
+                                        </p>
+                                        <span class="form-bar"></span>
+                                    </div>
+                                    
+                                    <div class="form-group form-primary">
+                                        <input type="date" class="form-control form-control-user"
+                                            formControlName="deliveryDate" id="deliveryDate" placeholder="Fecha de entrega">
+                                        <span class="form-bar"></span>
+                                    </div>
+                                    <div class="form-group form-primary" >
+                                        <input type="number" class="form-control form-control-user"
+                                            formControlName="amount" [ngModel]="calculateAmount" id="amount" placeholder="Precio" >
+                                        <span class="form-bar"></span>
+                                    </div>
+                                    <div class="form-group form-primary">
+                                        <input type="text" class="form-control form-control-user" 
+                                            formControlName="amountDesc" [ngModel]="calculateAmountDesc" id="amountDesc" placeholder="Precio con descuento">
+                                        <span class="form-bar"></span>
+                                    </div>
+                                    <div class="row m-t-30">
+                                        <div class="col-md-12">
+                                            <div class="form-actions">
+                                                <span class="pull-right"><button
+                                                        class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" (click)="addData()">Registrar</button></span>
+                                                <span class="pull-left"><button class="btn btn-secondary" type="reset"
+                                                        (click)="onReset()">Cancelar</button></span>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <p class="text-inverse text-left"><a href="shipment-list"><b>Volver</b></a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- end of col-sm-12 -->
+                </div>
+                <!-- end of row -->
+            </div>
+            <!-- end of container-fluid -->
+
+        </div>
+    </div>
+</div>

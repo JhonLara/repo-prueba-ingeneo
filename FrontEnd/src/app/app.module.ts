@@ -18,9 +18,12 @@ import { RegisterComponent } from './user/register/register.component';
 import { APP_BASE_HREF, DatePipe, DecimalPipe } from '@angular/common';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { LoginComponent } from './user/login/login.component';
-import { StorageComponent } from './storage/storage.component';
 import { ProductComponent } from './product/product-form/product.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
+import { StorageListComponent } from './storage/storage-list/storage-list.component';
+import { StorageComponent } from './storage/storage-form/storage.component';
+import { ShipmentListComponent } from './shipment/shipment-list/shipment-list.component';
+import { ShipmentComponent } from './shipment/shipment-form/shipment.component';
 
 const MATERIAL_MODULES = [MatToolbarModule, MatIconModule];
 @NgModule({
@@ -31,7 +34,10 @@ const MATERIAL_MODULES = [MatToolbarModule, MatIconModule];
     LoginComponent,
     StorageComponent,
     ProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    StorageListComponent,
+    ShipmentListComponent,
+    ShipmentComponent
   ],
   imports: [
     MatToolbarModule,

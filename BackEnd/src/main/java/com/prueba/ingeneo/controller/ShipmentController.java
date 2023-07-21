@@ -1,14 +1,18 @@
 package com.prueba.ingeneo.controller;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.prueba.ingeneo.dto.ShipmentDTO;
 import com.prueba.ingeneo.entity.Product;
 import com.prueba.ingeneo.entity.Shipment;
 import com.prueba.ingeneo.entity.Storage;
@@ -40,9 +45,16 @@ public class ShipmentController {
 	}
 
 	@PostMapping()
-	public Long createShipment(@RequestParam("shipment") String shipment)
-			throws JsonMappingException, JsonProcessingException {
-		Shipment shipmentNew = new ObjectMapper().readValue(shipment, Shipment.class);
+	public Long createShipment(@RequestBody ShipmentDTO shipment) throws JsonMappingException, JsonProcessingException {
+		Shipment shipmentNew = Shipment.builder().number(shipment.getNumber())
+				.storage(Storage.builder().storageId(shipment.getStorage().getStorageId())
+						.storageName(shipment.getStorage().getStorageName())
+						.storageType(shipment.getStorage().getStorageType())
+						.createDate(shipment.getStorage().getCreateDate()).build())
+				.vehicle(shipment.getVehicle()).deliveryDate(shipment.getDeliveryDate()).state(shipment.getState())
+				.shipmentDate(LocalDate.now()).productName(shipment.getProductName().getProductName())
+				.quantity(shipment.getQuantity()).amount(shipment.getAmount()).amountDesc(shipment.getAmountDesc())
+				.build();
 		return shipmentService.createShipment(shipmentNew);
 	}
 
